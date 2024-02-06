@@ -1,6 +1,11 @@
 import logo from './assets/Logo.svg';
 import NewNoteCard from './components/NewNoteCard';
 import NoteCard from './components/NoteCard';
+
+const note = {
+  date: new Date(),
+  content: 'hello world'
+}
 function App() {
 
   return (
@@ -16,7 +21,7 @@ function App() {
       <div className='h-px bg-slate-700'/>
       <div className='grid grid-cols-3 gap-6 auto-rows-[250px]'>
         <NewNoteCard />
-        <NoteCard />
+        <NoteCard note={ note } />
       </div>
     </div>
   )
