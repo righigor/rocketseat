@@ -25,8 +25,7 @@ Se você tiver alguma dúvida ou sugestão sobre o projeto, fique à vontade par
 
 ### Imagens do Projeto
 
-![Página inicial do projeto](<img src="https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/page-inicial.png" alt="Página inicial do projeto" width="400">)
-
+![Página inicial do projeto](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/page-inicial.png)
 ![Página de adicionar notas](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/add-note-incial.png)
 
 ![Página de adicionar nota via audio](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/gravando-note.png)
