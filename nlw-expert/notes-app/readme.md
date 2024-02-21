@@ -25,8 +25,8 @@ Se você tiver alguma dúvida ou sugestão sobre o projeto, fique à vontade par
 
 ### Imagens do Projeto
 
-![Página inicial do projeto](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/page-inicial.png)
-![Página de adicionar notas](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/add-note-incial.png)
+![Página inicial do projeto](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/page-inicial.png){width=400}
+![Página de adicionar notas](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/add-note-incial.png){width=400}
 
-![Página de adicionar nota via audio](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/gravando-note.png)
-![Página de nota salva](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/note-1-salva.png)
+![Página de adicionar nota via audio](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/gravando-note.png){width=400}
+![Página de nota salva](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/note-1-salva.png){width=400}
