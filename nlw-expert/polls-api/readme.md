@@ -23,7 +23,6 @@ Se você tiver alguma dúvida ou sugestão sobre o projeto, fique à vontade par
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/igor-righi/) [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/righigor) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/righigor/) [![Portfolio](https://img.shields.io/badge/Portfolio-9cf?style=for-the-badge&logo=appveyor&logoColor=white)](https://righigordev.netlify.app/)
 
 ### Imagens do projeto
-https://github.com/righigor/rocketseat/tree/main/nlw-expert/polls-app/src/img/poll-api/
 
 ![POST poll](https://github.com/righigor/rocketseat/tree/main/nlw-expert/polls-app/src/img/poll-api/01-post-poll.png)
 ![DB poll](https://github.com/righigor/rocketseat/tree/main/nlw-expert/polls-app/src/img/poll-api/02-db-poll.png)
