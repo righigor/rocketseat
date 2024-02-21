@@ -5,6 +5,7 @@
 1. [Descrição](#descrição)
 2. [Skills](#skills)
 3. [Contato](#contato)
+4. [Imagens do Projeto](#imagens-do-projeto)
 
 ### Descrição
 
@@ -20,3 +21,12 @@ Se você tiver alguma dúvida ou sugestão sobre o projeto, fique à vontade par
 
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:righigordev@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/igor-righi/) [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/righigor) [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/righigor/) [![Portfolio](https://img.shields.io/badge/Portfolio-9cf?style=for-the-badge&logo=appveyor&logoColor=white)](https://righigordev.netlify.app/)
+
+
+### Imagens do Projeto
+
+![Página inicial do projeto](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/page-inicial.png)
+![Página de adicionar notas](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/add-note-incial.png)
+
+![Página de adicionar nota via audio](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/gravando-note.png)
+![Página de nota salva](https://github.com/righigor/rocketseat/blob/main/nlw-expert/notes-app/src/imgs/notes-manager/note-1-salva.png)
