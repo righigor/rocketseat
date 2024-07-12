@@ -1,17 +1,27 @@
-import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2 } from "lucide-react"
+import { MapPin, Calendar, ArrowRight, UserRoundPlus, Settings2, X } from "lucide-react"
 import logo from "../../assets/logo.svg"
 import { FormEvent, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import InviteGuestModal from "./invite-guest-modal";
 import ConfirmTripModal from "./confirm-trip-modal";
+import { DateRange, DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
+import { format } from "date-fns";
+import { api } from "../../lib/axios";
 
 function CreateTripPage() {
   const navigate = useNavigate();
   const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
   const [isGuestModalOpen, setIsGuestModalOpen] = useState(false);
   const [isConfirmTripOpen, setIsConfirmTripOpen] = useState(false);
+  const [isDatePickOpen, setIsDatePickOpen] = useState(false);
 
+
+  const [eventStartAndEndDates, setEventStartAndEndDates] = useState<DateRange | undefined>();
   const [guests, setGuests] = useState<string[]>([]);
+  const [destination, setDestination] = useState<string>("");
+  const [ownerName, setOwnerName] = useState<string>("");
+  const [ownerEmail, setOwnerEmail] = useState<string>("");
 
   const handleConfirmTrip = () => {
     setIsConfirmTripOpen(!isConfirmTripOpen)
@@ -23,6 +33,10 @@ function CreateTripPage() {
 
   const handleGuestModal = () => {
     setIsGuestModalOpen(!isGuestModalOpen)
+  };
+
+  const handleDatePick = () => {
+    setIsDatePickOpen(!isDatePickOpen)
   };
 
   const handleAddGuest = (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,10 +55,33 @@ function CreateTripPage() {
     setGuests(newGuests);
   };
 
-  const createTrip = (e: FormEvent<HTMLFormElement>) => {
+  async function createTrip(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    navigate("/trips/1");
-  };
+    console.log("Trip created!");
+    console.log("Owner name:", ownerName);
+    console.log("Owner email:", ownerEmail);
+    console.log("Destination:", destination);
+    console.log("Guests:", guests);
+    console.log("Start date:", eventStartAndEndDates?.from);
+    console.log("End date:", eventStartAndEndDates?.to);
+    
+    // if (!destination || !eventStartAndEndDates?.from || !eventStartAndEndDates?.to || !ownerName || !ownerEmail || guests.length === 0) {
+    //   return;
+    // }
+    
+    const response = await api.post("/trips", {
+      destination,
+      starts_at: eventStartAndEndDates?.from,
+      ends_at: eventStartAndEndDates?.to,
+      emails_to_invite: guests,
+      owner_name: ownerName,
+      owner_email: ownerEmail,
+    })
+    console.log(response);
+    navigate(`/trips/${response.data.tripId}`);
+  }
+
+  const displayDate = eventStartAndEndDates && eventStartAndEndDates.from && eventStartAndEndDates.to ? `${format(eventStartAndEndDates.from, "d' de 'LLL")} até ${format(eventStartAndEndDates.to, "d' de 'LLL")}` : null
 
   return (
     <div
@@ -63,21 +100,53 @@ function CreateTripPage() {
 
         <div className="space-y-4">
           <div
-            className='h-16 bg-zinc-900 px-4 rounded-xl flex items-center shadow-shape'
+            className='h-16 bg-zinc-900 px-4 rounded-xl flex items-center shadow-shape gap-3'
           >
             <div 
-              className="flex items-center gap-2 w-13"
+              className="flex items-center gap-2 flex-1"
             >
               <MapPin className='size-5 text-zinc-400' />
-              <input type="text" placeholder='Para onde você vai?' className='bg-transparent placeholder-zinc-400 text-lg outline-none' disabled={isGuestsInputOpen} />
+              <input type="text" placeholder='Para onde você vai?' className='bg-transparent placeholder-zinc-400 text-lg outline-none' disabled={isGuestsInputOpen}
+                onChange={(e) => setDestination(e.target.value)}
+              />
             </div>
 
-            <div
-              className="flex items-center gap-2"
+            <button
+              onClick={handleDatePick}
+              disabled={isGuestsInputOpen}
+              className="flex items-center gap-2 text-left w-[240px]"
             >
               <Calendar className='w-5 h-5 text-zinc-400' />
-              <input type="text" placeholder='Quando?'className='bg-transparent placeholder-zinc-400 text-lg outline-none' disabled={isGuestsInputOpen}/>
-            </div>
+              <span
+               className='text-zinc-400 text-lg'
+              >
+                { displayDate || "Quando?"}
+
+              </span>
+            </button>
+            
+            {isDatePickOpen && (
+              <div className="fixed inset-0 bg-black/60 flex justify-center items-center">
+              <div className="rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <h2 className="text-lg font-semibold">Selecione a data</h2>
+                    <button
+                      onClick={handleDatePick}
+                    >
+                      <X className="size-5 text-zinc-400"/>
+                    </button>
+                  </div>
+                </div>
+
+                <DayPicker mode="range" 
+                  selected={eventStartAndEndDates} onSelect={setEventStartAndEndDates}
+                />
+              </div>
+              </div>
+            )}
+
+            <div className="w-px h-6 bg-zinc-800" />
 
             {
               isGuestsInputOpen ? (
@@ -145,6 +214,10 @@ function CreateTripPage() {
         <ConfirmTripModal
           handleConfirmTrip={handleConfirmTrip}
           createTrip={createTrip}
+          setOwnerName={setOwnerName}
+          setOwnerEmail={setOwnerEmail}
+          destination={destination}
+          displayDate={displayDate}
         />
       )}
 
