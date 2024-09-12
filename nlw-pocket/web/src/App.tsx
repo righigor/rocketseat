@@ -1,11 +1,20 @@
+import { useState } from "react";
 import { CreateGoal } from "./components/create-goal";
 import { Summary } from "./components/summary";
 // import { EmptyGoals } from "./components/empty-goals";
 import { Dialog } from "./components/ui/dialog";
+import { useQuery } from "@tanstack/react-query";
+import { getSummary } from "./http/get-summary";
 
 function App() {
+  const { data } = useQuery({
+    queryKey: ["summary"],
+    queryFn: getSummary,
+    staleTime: 1000 * 60,
+  });
+
   return (
-    <div className="bg-zinc-950 text-zinc-50 antialiased h-screen">
+    <div>
       <Dialog>
         {/* <EmptyGoals /> */}
         <Summary />
